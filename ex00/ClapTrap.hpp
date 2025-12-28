@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 13:16:04 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 15:50:30 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:40:07 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class ClapTrap{
 	private:
 		std::string		_name;
-		int				_health;
+		int				_hitPoints;
 		int				_energy;
-		int				_attack;
+		int				_attackDamage;
 
 	public:
 		ClapTrap(std::string name);

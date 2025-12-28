@@ -6,28 +6,28 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 13:36:31 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 19:36:56 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:40:10 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _health(10), _energy(10), _attack(0){
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energy(10), _attackDamage(0){
 	std::cout << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src){
-	_attack = src._attack;
+	_attackDamage = src._attackDamage;
 	_energy = src._energy;
-	_health = src._health;
+	_hitPoints = src._hitPoints;
 	_name = src._name;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &rhs){
 	if (this != &rhs){
-		this->_attack = rhs._attack;
+		this->_attackDamage = rhs._attackDamage;
 		this->_energy = rhs._energy;
-		this->_health = rhs._health;
+		this->_hitPoints = rhs._hitPoints;
 		this->_name = rhs._name;
 	}
 	return (*this);
@@ -38,10 +38,10 @@ ClapTrap::~ClapTrap(){
 }
 
 void	ClapTrap::attack(const std::string &target){
-	if (_energy != 0 && _health != 0){
-		_health -= _attack;
+	if (_energy != 0 && _hitPoints != 0){
+		_hitPoints -= _attackDamage;
 		std::cout << "ClapTrap " << _name << " attacks " << target
-				  << ", causing " << _attack << " points of damage."
+				  << ", causing " << _attackDamage << " points of damage."
 				  << std::endl;
 	}
 	else {
@@ -57,8 +57,8 @@ void	ClapTrap::attack(const std::string &target){
 }
 
 void	ClapTrap::beRepaired(unsigned int amount){
-	if (_energy != 0 && _health){
-		_health += amount;
+	if (_energy != 0 && _hitPoints){
+		_hitPoints += amount;
 		_energy -= 1;
 		std::cout << "ClapTrap " << _name << " has repaired "
 				  << amount << " of health" << std::endl;
@@ -76,12 +76,12 @@ void	ClapTrap::beRepaired(unsigned int amount){
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	if (_energy != 0 && _health != 0){
-		_health -= amount;
+	if (_energy != 0 && _hitPoints != 0){
+		_hitPoints -= amount;
 		_energy -= 1;
 
-		if (_health < 0)
-			_health = 0;
+		if (_hitPoints < 0)
+			_hitPoints = 0;
 		std::cout << "ClapTrap " << _name << " has taken "
 				  << amount << " of damage." << std::endl;
 	}
