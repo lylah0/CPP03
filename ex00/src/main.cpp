@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 14:44:57 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 15:03:19 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:37:38 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(){
 	ClapTrap	a("jenny");
-	ClapTrap	b("nils");
+	ClapTrap	b("marie");
 
 	std::cout << "test 1" << std::endl;
 	a.attack("mark");

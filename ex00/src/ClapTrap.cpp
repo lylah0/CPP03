@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 13:36:31 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 16:09:18 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/12/28 19:36:56 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,14 @@ void	ClapTrap::attack(const std::string &target){
 				  << std::endl;
 	}
 	else {
-		std::cout << "ClapTrap " << _name << " doesn't have enough energy or health left."
-				  << std::endl;
+		if (_energy == 0){
+			std::cout << "ClapTrap " << _name << " doesn't have enough energy left."
+					  << std::endl;
+		}
+		else{
+			std::cout << "ClapTrap " << _name << " doesn't have enough hp left"
+					  << std::endl;
+		}
 	}
 }
 
@@ -56,12 +62,16 @@ void	ClapTrap::beRepaired(unsigned int amount){
 		_energy -= 1;
 		std::cout << "ClapTrap " << _name << " has repaired "
 				  << amount << " of health" << std::endl;
-		std::cout << _name << " has " << _health << " of health and "
-		<< _energy << " of energy left." << std::endl;
 	}
 	else {
-		std::cout << "ClapTrap " << _name << " doesn't have enough energy or health left."
-				  << std::endl;
+		if (_energy == 0){
+			std::cout << "ClapTrap " << _name << " doesn't have enough energy left."
+					  << std::endl;
+		}
+		else{
+			std::cout << "ClapTrap " << _name << " doesn't have enough hp left"
+			<< std::endl;
+		}
 	}
 }
 
@@ -74,7 +84,5 @@ void	ClapTrap::takeDamage(unsigned int amount){
 			_health = 0;
 		std::cout << "ClapTrap " << _name << " has taken "
 				  << amount << " of damage." << std::endl;
-		std::cout << _name << " has " << _health << " of health and "
-				  << _energy << " of energy left." << std::endl;
 	}
 }
