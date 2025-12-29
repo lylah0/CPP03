@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 16:26:38 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 20:07:56 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/12/29 13:04:43 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src){
-	_attackDamage = src._attackDamage;
-	_energy = src._energy;
-	_hitPoints = src._hitPoints;
-	_name = src._name;
+	std::cout << "ScavTrap constructor called." << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap &rhs){

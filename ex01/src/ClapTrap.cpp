@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 13:36:31 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 20:03:10 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/12/29 13:20:06 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ClapTrap::~ClapTrap(){
 }
 
 void	ClapTrap::attack(const std::string &target){
-	if (_energy != 0 && _hitPoints != 0){
+	if (_energy > 0 && _hitPoints > 0){
 		_energy--;
 		std::cout << "ClapTrap " << _name << " attacks " << target
 				  << ", causing " << _attackDamage << " points of damage."
@@ -77,14 +77,13 @@ void	ClapTrap::beRepaired(unsigned int amount){
 
 void	ClapTrap::takeDamage(unsigned int amount){
 	if (_hitPoints != 0){
-		_hitPoints -= (int)amount;
+		_hitPoints -= static_cast<int>(amount);
 		if (_hitPoints < 0)
-		_hitPoints = 0;
-	std::cout << "ClapTrap " << _name << " has taken "
-			  << amount << " point of damage." << std::endl;
-	}
+			_hitPoints = 0;
+		std::cout << "ClapTrap " << _name << " has taken "
+				  << amount << " point of damage." << std::endl;
+				}
 	else{
 		std::cout << _name << " is already dead." << std::endl;
 	}
-
 }
