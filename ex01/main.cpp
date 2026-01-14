@@ -6,25 +6,27 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 16:30:30 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/28 20:03:36 by lylrandr         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:15:20 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ScavTrap.hpp"
-#include "../ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 int	main(){
-	std::cout << "test 1" << std::endl;
+	std::cout << "\n===test 1 :" << std::endl;
 	ScavTrap	a("Alice");
 	a.attack("jules");
 	a.takeDamage(6);
 	a.beRepaired(3);
 
-	std::cout << "test 2" << std::endl;
+	std::cout << "\n===test 2 :" << std::endl;
 	ScavTrap	b("marie");
+	b.guardGate();
 	b.takeDamage(101);
 	b.takeDamage(1);
 	b.attack("jules");
 	b.guardGate();
+	std::cout << "\n" << std::endl;
 	return (0);
 }

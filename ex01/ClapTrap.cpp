@@ -6,11 +6,11 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 13:36:31 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/29 13:20:06 by lylrandr         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:21:53 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energy(10), _attackDamage(0){
 	std::cout << "Default constructor called" << std::endl;
@@ -60,16 +60,16 @@ void	ClapTrap::beRepaired(unsigned int amount){
 	if (_energy != 0 && _hitPoints){
 		_hitPoints += amount;
 		_energy -= 1;
-		std::cout << "ClapTrap " << _name << " has repaired "
+		std::cout << _name << " has repaired "
 				  << amount << " of health" << std::endl;
 	}
 	else {
 		if (_energy == 0){
-			std::cout << "ClapTrap " << _name << " doesn't have enough energy left."
+			std::cout << _name << " doesn't have enough energy left."
 					  << std::endl;
 		}
 		else{
-			std::cout << "ClapTrap " << _name << " doesn't have enough hp left"
+			std::cout << _name << " doesn't have enough hp left"
 			<< std::endl;
 		}
 	}
@@ -80,7 +80,7 @@ void	ClapTrap::takeDamage(unsigned int amount){
 		_hitPoints -= static_cast<int>(amount);
 		if (_hitPoints < 0)
 			_hitPoints = 0;
-		std::cout << "ClapTrap " << _name << " has taken "
+		std::cout << _name << " has taken "
 				  << amount << " point of damage." << std::endl;
 				}
 	else{

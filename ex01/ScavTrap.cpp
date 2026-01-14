@@ -6,11 +6,11 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 16:26:38 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/12/29 13:04:43 by lylrandr         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:22:27 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	_hitPoints = 100;
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src){
-	std::cout << "ScavTrap constructor called." << std::endl;
+	std::cout << "ScavTrap constructor called" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap &rhs){
@@ -46,5 +46,13 @@ void	ScavTrap::attack(const std::string &target){
 }
 
 void	ScavTrap::guardGate(){
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+	if (_energy && _hitPoints)
+		std::cout << "ScavTrap " << _name << " is now in Gate keeper mode." << std::endl;
+	else{
+		if (!_hitPoints){
+			std::cout << _name << " has no hp left." << std::endl;
+		}
+		else
+			std::cout << _name << " has no energy left." << std::endl;
+	}
 }
