@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 16:26:38 by lylrandr          #+#    #+#             */
-/*   Updated: 2026/01/14 16:22:27 by lylrandr         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:32:25 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	ScavTrap::guardGate(){
 		std::cout << "ScavTrap " << _name << " is now in Gate keeper mode." << std::endl;
 	else{
 		if (!_hitPoints){
-			std::cout << _name << " has no hp left." << std::endl;
+			std::cout << _name << " has no hp left and therefore cannot guard the gate." << std::endl;
 		}
 		else
-			std::cout << _name << " has no energy left." << std::endl;
+			std::cout << _name << " has no energy left and therefore cannot guard the gate." << std::endl;
 	}
 }
